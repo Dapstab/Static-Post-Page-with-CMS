@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "public/assets/blog" # Donde se van a guardar los assets, desde el root folder
+public_folder: "/assets/blog" # Crear el root folder para las imagenes que se van a meter en los blogs
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "src/blog" # Donde se van a guardar los blogs nuevos. The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md, el nombre de los post queremos que tengan por defecto este formato porque los estamos organizando por fecha.
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" } # label es lo que vamos a ver en el UI, name es el nombre que colocamos en el front-matter, widget es el tipo de dato
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Image caption", name: "imageAlt", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
