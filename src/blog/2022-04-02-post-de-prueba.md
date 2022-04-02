@@ -5,7 +5,6 @@ author: Gaviad
 date: 2022-04-02T06:30:38.864Z
 tags:
   - post
-  - featured
 image: /assets/blog/20190627_101257.jpg
 imageAlt: Medellin
 ---
